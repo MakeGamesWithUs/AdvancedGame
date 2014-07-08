@@ -12,7 +12,7 @@
 
 + (id)sharedInstance;
 
-@property (nonatomic, copy) NSString *username;
+@property (nonatomic, copy) CCColor *selectedBackgroundColor;
 @property (nonatomic, assign) NSInteger *coins;
 
 @end

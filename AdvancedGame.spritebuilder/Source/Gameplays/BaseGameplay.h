@@ -1,5 +1,5 @@
 //
-//  FactCheckGameplay.h
+//  BaseGameplay.h
 //  AdvancedGame
 //
 //  Created by Benjamin Encz on 07/07/14.
@@ -7,8 +7,8 @@
 //
 
 #import "CCNode.h"
-#import "BaseGameplay.h"
+#import "NumberChooser.h"
 
-@interface FactCheckGameplay : BaseGameplay
+@interface BaseGameplay : CCNode <NumberChooserDelegate>
 
 @end
