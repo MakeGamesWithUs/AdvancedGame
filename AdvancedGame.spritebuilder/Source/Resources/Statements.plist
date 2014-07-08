@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Statement</key>
+		<string>France and Spain are neighbors</string>
+		<key>True</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>Statement</key>
+		<string>Potatoes contain gluten</string>
+		<key>True</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>Statement</key>
+		<string>California is the most populous state in the US</string>
+		<key>True</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>Statement</key>
+		<string>Germany will win the World Cup</string>
+		<key>True</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>Statement</key>
+		<string>The Moon is not smaller than the Sun</string>
+		<key>True</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>Statement</key>
+		<string>Objective-C is older than Java</string>
+		<key>True</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>Statement</key>
+		<string>SF is the oldest city in the United States</string>
+		<key>True</key>
+		<false/>
+	</dict>
+</array>
+</plist>

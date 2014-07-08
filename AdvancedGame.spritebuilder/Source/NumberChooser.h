@@ -8,6 +8,17 @@
 
 #import "CCNode.h"
 
+@class NumberChooser;
+
+@protocol NumberChooserDelegate <NSObject>
+
+- (void)numberChooser:(NumberChooser *)numberChooser guessedCorrectly:(BOOL)guess;
+
+@end
+
+
 @interface NumberChooser : CCNode
+
+@property (nonatomic, weak) id <NumberChooserDelegate> delegate;
 
 @end

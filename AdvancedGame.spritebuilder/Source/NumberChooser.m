@@ -25,9 +25,11 @@
     if ([number1 integerValue] > [number2 integerValue]) {
         // guess correct
         CCLOG(@"Correct");
+        [self.delegate numberChooser:self guessedCorrectly:YES];
     } else {
         // guess wrong
         CCLOG(@"Wrong");
+        [self.delegate numberChooser:self guessedCorrectly:NO];
     }
     
     [self generateNewRandomNumbers];
