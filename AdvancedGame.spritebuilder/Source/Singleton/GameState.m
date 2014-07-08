@@ -10,7 +10,7 @@
 
 @implementation GameState
 
-+ (id)sharedInstance {
++ (instancetype)sharedInstance {
     // structure used to test whether the block has completed or not
     static dispatch_once_t p = 0;
     
@@ -24,6 +24,15 @@
     
     // returns the same object each time
     return _sharedObject;
+}
+
+#pragma mark - Setter Override
+
+- (void)setCoins:(NSInteger)coins {
+    _coins = coins;
+    
+    NSNumber *coinNumber = [NSNumber numberWithInt:coins];
+    [[NSNotificationCenter defaultCenter] postNotificationName:GAME_STATE_SCORE_NOTIFICATION object:coinNumber];
 }
 
 @end

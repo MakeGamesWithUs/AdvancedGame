@@ -7,6 +7,7 @@
 //
 
 #import "FactCheckGameplay.h"
+#import "GameState.h"
 
 @implementation FactCheckGameplay {
     CCLabelTTF *_factLabel;
@@ -33,6 +34,8 @@
     
     if (guess == _selectedStatementTruth) {
         _factLabel.string = @"You got this right!";
+        // increase coins
+        [GameState sharedInstance].coins = [GameState sharedInstance].coins + 1;
     } else {
         _factLabel.string = @"No! This is wrong";
     }

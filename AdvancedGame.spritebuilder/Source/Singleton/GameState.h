@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+static  NSString * const GAME_STATE_SCORE_NOTIFICATION = @"GameState_ScoreChanged";
+
 @interface GameState : NSObject
 
-+ (id)sharedInstance;
++ (instancetype)sharedInstance;
 
 @property (nonatomic, copy) CCColor *selectedBackgroundColor;
-@property (nonatomic, assign) NSInteger *coins;
+@property (nonatomic, assign) NSInteger coins;
 
 @end

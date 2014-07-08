@@ -20,6 +20,8 @@
  
  3) Timer as notification
  
+ 4) Notification about purchased coins as notification
+ 
  */
 
 - (void)startButtonPressed {
