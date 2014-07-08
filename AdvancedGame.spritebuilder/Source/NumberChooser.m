@@ -70,7 +70,12 @@
     for (NSUInteger i = 0; i < [randomNumberArray count]; i++)
     {
         int j = arc4random_uniform([randomNumberArray count]);
-        [randomNumberArray replaceObjectAtIndex:i withObject:randomNumberArray[j]];
+        
+        NSNumber *jNumber = randomNumberArray[j];
+        NSNumber *iNumber = randomNumberArray[i];
+        
+        randomNumberArray[j] = iNumber;
+        randomNumberArray[i] = jNumber;
     }
     
     return [randomNumberArray subarrayWithRange:NSMakeRange(0,n)];

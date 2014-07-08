@@ -18,7 +18,7 @@
 		<key>Statement</key>
 		<string>California is the most populous state in the US</string>
 		<key>True</key>
-		<false/>
+		<true/>
 	</dict>
 	<dict>
 		<key>Statement</key>

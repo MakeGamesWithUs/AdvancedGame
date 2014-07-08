@@ -1,5 +1,5 @@
 //
-//  Gameplay.h
+//  StoreScene.h
 //  AdvancedGame
 //
 //  Created by Benjamin Encz on 07/07/14.
@@ -8,8 +8,6 @@
 
 #import "CCNode.h"
 
-@interface GameplayScene : CCNode
-
-@property (nonatomic, copy) NSString *gameplayMode;
+@interface StoreScene : CCNode
 
 @end

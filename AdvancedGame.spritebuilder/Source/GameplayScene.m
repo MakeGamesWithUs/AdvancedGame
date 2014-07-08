@@ -8,31 +8,65 @@
 
 #import "GameplayScene.h"
 #import "NumberChooser.h"
-#import "FactCheckGameplay.h"
+#import "BaseGameplay.h"
 #import "GameState.h"
 
 @implementation GameplayScene {
     NumberChooser *_numberChooser;
     CCNode *_gameplayContainer;
     CCLabelTTF *_coinsLabel;
+    CCLabelTTF *_timerLabel;
+    
+    NSInteger _timerValue;
 }
 
 - (void)didLoadFromCCB {
-    FactCheckGameplay *factCheckGameplay = (FactCheckGameplay *) [CCBReader load:@"FactCheckGameplay"];
-    [_gameplayContainer addChild:factCheckGameplay];
-    _numberChooser.delegate = factCheckGameplay;
+    _timerValue = 15;
+    [self schedule:@selector(tick) interval:1.f];
+    
+    _coinsLabel.string = [NSString stringWithFormat:@"Coins: %d", [GameState sharedInstance].coins];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scoreChanged:) name:GAME_STATE_SCORE_NOTIFICATION object:nil];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)onEnter {
     [super onEnter];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scoreChanged:) name:GAME_STATE_SCORE_NOTIFICATION object:nil];
+    // unpause when gameplay gets visible
+    self.paused = NO;
 }
 
-- (void)onExit {
-    [super onExit];
+#pragma mark - Setter Override
+
+- (void)setGameplayMode:(NSString *)gameplayMode {
+    _gameplayMode = [gameplayMode copy];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    BaseGameplay *gameplay = nil;
+    
+    if ([_gameplayMode isEqualToString:@"Dodge"]) {
+        gameplay = (BaseGameplay *) [CCBReader load:@"DodgeGameplay"];
+    } else if ([_gameplayMode isEqualToString:@"Facts"]) {
+        gameplay = (BaseGameplay *) [CCBReader load:@"FactCheckGameplay"];
+    }
+    
+    [_gameplayContainer addChild:gameplay];
+    _numberChooser.delegate = gameplay;
+}
+
+#pragma mark - Timer
+
+- (void)tick {
+    if (_timerValue == 0) {
+        [self unschedule:@selector(tick)];
+        [[CCDirector sharedDirector] popScene];
+    }
+    
+    _timerValue--;
+    _timerLabel.string = [NSString stringWithFormat:@"%d", _timerValue];
 }
 
 #pragma mark - Notification Callbacks
@@ -42,5 +76,15 @@
     NSNumber *newCoinValue = [notification object];
     _coinsLabel.string = [NSString stringWithFormat:@"Coins: %d", [newCoinValue integerValue]];
 }
+
+#pragma mark - Button Callback
+
+- (void)storeButtonPressed {
+    // pause this gameplay when we present the store scene
+    self.paused = YES;
+    CCScene *storeScene = [CCBReader loadAsScene:@"StoreScene"];
+    [[CCDirector sharedDirector] pushScene:storeScene];
+}
+
 
 @end

@@ -38,6 +38,8 @@
         [GameState sharedInstance].coins = [GameState sharedInstance].coins + 1;
     } else {
         _factLabel.string = @"No! This is wrong";
+        // decrease coins
+        [GameState sharedInstance].coins = [GameState sharedInstance].coins - 1;
     }
     
     [self.animationManager setCompletedAnimationCallbackBlock:^(id sender) {

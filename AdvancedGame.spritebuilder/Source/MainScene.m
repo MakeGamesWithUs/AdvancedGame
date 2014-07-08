@@ -7,6 +7,7 @@
 //
 
 #import "MainScene.h"
+#import "GameplayScene.h"
 
 @implementation MainScene
 
@@ -24,9 +25,18 @@
  
  */
 
-- (void)startButtonPressed {
-    CCScene *gameplay = [CCBReader loadAsScene:@"Gameplay"];
-    [[CCDirector sharedDirector] pushScene:gameplay];
+- (void)dodgeButtonPressed {
+    CCScene *scene = [CCBReader loadAsScene:@"Gameplay"];
+    GameplayScene *gameplay = scene.children[0];
+    gameplay.gameplayMode = @"Dodge";
+    [[CCDirector sharedDirector] pushScene:scene];
+}
+
+- (void)factButtonPressed {
+    CCScene *scene = [CCBReader loadAsScene:@"Gameplay"];
+    GameplayScene *gameplay = scene.children[0];
+    gameplay.gameplayMode = @"Facts";
+    [[CCDirector sharedDirector] pushScene:scene];
 }
 
 @end
