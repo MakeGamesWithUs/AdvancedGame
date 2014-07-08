@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Apportable. All rights reserved.
 //
 
-#import "BaseGameplay.h"
+#import "NumberChooser.h"
 
-@interface DodgeGameplay : BaseGameplay
+@interface DodgeGameplay : CCNode <NumberChooserDelegate>
 
 @end

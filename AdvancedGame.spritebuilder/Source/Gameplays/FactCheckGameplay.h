@@ -6,9 +6,8 @@
 //  Copyright (c) 2014 Apportable. All rights reserved.
 //
 
-#import "CCNode.h"
-#import "BaseGameplay.h"
+#import "NumberChooser.h"
 
-@interface FactCheckGameplay : BaseGameplay
+@interface FactCheckGameplay : CCNode <NumberChooserDelegate>
 
 @end

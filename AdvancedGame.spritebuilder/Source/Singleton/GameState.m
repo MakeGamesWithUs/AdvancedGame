@@ -8,6 +8,8 @@
 
 #import "GameState.h"
 
+static NSString* const GAME_STATE_COIN_KEY = @"GameStateCoinKey";
+
 @implementation GameState
 
 + (instancetype)sharedInstance {
@@ -26,13 +28,30 @@
     return _sharedObject;
 }
 
+- (instancetype)init {
+    self = [super init];
+    
+    if (self) {
+        NSNumber *coins = [[NSUserDefaults standardUserDefaults] objectForKey:GAME_STATE_COIN_KEY];
+        self.coins = [coins integerValue];
+    }
+    
+    return self;
+}
+
 #pragma mark - Setter Override
 
 - (void)setCoins:(NSInteger)coins {
     _coins = coins;
     
     NSNumber *coinNumber = [NSNumber numberWithInt:coins];
+    
+    // broadcast change
     [[NSNotificationCenter defaultCenter] postNotificationName:GAME_STATE_SCORE_NOTIFICATION object:coinNumber];
+    
+    // store change
+    [[NSUserDefaults standardUserDefaults] setObject:coinNumber forKey:GAME_STATE_COIN_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end

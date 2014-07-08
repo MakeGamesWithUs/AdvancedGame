@@ -12,7 +12,6 @@
 		62095C34196BA88E00FCEC78 /* Statements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62095C33196BA88E00FCEC78 /* Statements.plist */; };
 		62095C37196BABCB00FCEC78 /* GameplayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 62095C36196BABCB00FCEC78 /* GameplayScene.m */; };
 		62095C3B196BACCF00FCEC78 /* FactCheckGameplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 62095C3A196BACCF00FCEC78 /* FactCheckGameplay.m */; };
-		62095C3E196BB30C00FCEC78 /* BaseGameplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 62095C3D196BB30C00FCEC78 /* BaseGameplay.m */; };
 		62095C41196BBC3D00FCEC78 /* StoreScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 62095C40196BBC3D00FCEC78 /* StoreScene.m */; };
 		62095C44196BBE9B00FCEC78 /* DodgeGameplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 62095C43196BBE9B00FCEC78 /* DodgeGameplay.m */; };
 		8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8392007918EE8E3300B6C429 /* GLKit.framework */; };
@@ -73,8 +72,6 @@
 		62095C36196BABCB00FCEC78 /* GameplayScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameplayScene.m; path = Source/GameplayScene.m; sourceTree = "<group>"; };
 		62095C39196BACCF00FCEC78 /* FactCheckGameplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FactCheckGameplay.h; sourceTree = "<group>"; };
 		62095C3A196BACCF00FCEC78 /* FactCheckGameplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FactCheckGameplay.m; sourceTree = "<group>"; };
-		62095C3C196BB30C00FCEC78 /* BaseGameplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseGameplay.h; sourceTree = "<group>"; };
-		62095C3D196BB30C00FCEC78 /* BaseGameplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseGameplay.m; sourceTree = "<group>"; };
 		62095C3F196BBC3D00FCEC78 /* StoreScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreScene.h; path = Source/Scenes/StoreScene.h; sourceTree = "<group>"; };
 		62095C40196BBC3D00FCEC78 /* StoreScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreScene.m; path = Source/Scenes/StoreScene.m; sourceTree = "<group>"; };
 		62095C42196BBE9B00FCEC78 /* DodgeGameplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DodgeGameplay.h; sourceTree = "<group>"; };
@@ -150,8 +147,6 @@
 		62095C38196BACAD00FCEC78 /* Gameplays */ = {
 			isa = PBXGroup;
 			children = (
-				62095C3C196BB30C00FCEC78 /* BaseGameplay.h */,
-				62095C3D196BB30C00FCEC78 /* BaseGameplay.m */,
 				62095C39196BACCF00FCEC78 /* FactCheckGameplay.h */,
 				62095C3A196BACCF00FCEC78 /* FactCheckGameplay.m */,
 				62095C42196BBE9B00FCEC78 /* DodgeGameplay.h */,
@@ -401,7 +396,6 @@
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
 				62095C2F196BA0B100FCEC78 /* GameState.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
-				62095C3E196BB30C00FCEC78 /* BaseGameplay.m in Sources */,
 				62095C44196BBE9B00FCEC78 /* DodgeGameplay.m in Sources */,
 				62095C41196BBC3D00FCEC78 /* StoreScene.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,

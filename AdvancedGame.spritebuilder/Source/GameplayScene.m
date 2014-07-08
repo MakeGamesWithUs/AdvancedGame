@@ -8,7 +8,6 @@
 
 #import "GameplayScene.h"
 #import "NumberChooser.h"
-#import "BaseGameplay.h"
 #import "GameState.h"
 
 @implementation GameplayScene {
@@ -45,12 +44,12 @@
 - (void)setGameplayMode:(NSString *)gameplayMode {
     _gameplayMode = [gameplayMode copy];
     
-    BaseGameplay *gameplay = nil;
+    CCNode <NumberChooserDelegate> *gameplay = nil;
     
     if ([_gameplayMode isEqualToString:@"Dodge"]) {
-        gameplay = (BaseGameplay *) [CCBReader load:@"DodgeGameplay"];
+        gameplay = (CCNode <NumberChooserDelegate> *) [CCBReader load:@"DodgeGameplay"];
     } else if ([_gameplayMode isEqualToString:@"Facts"]) {
-        gameplay = (BaseGameplay *) [CCBReader load:@"FactCheckGameplay"];
+        gameplay = (CCNode <NumberChooserDelegate> *) [CCBReader load:@"FactCheckGameplay"];
     }
     
     [_gameplayContainer addChild:gameplay];

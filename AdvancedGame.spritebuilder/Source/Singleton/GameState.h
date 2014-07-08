@@ -14,7 +14,6 @@ static  NSString * const GAME_STATE_SCORE_NOTIFICATION = @"GameState_ScoreChange
 
 + (instancetype)sharedInstance;
 
-@property (nonatomic, copy) CCColor *selectedBackgroundColor;
 @property (nonatomic, assign) NSInteger coins;
 
 @end
