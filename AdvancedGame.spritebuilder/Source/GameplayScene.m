@@ -15,26 +15,26 @@
     CCNode *_gameplayContainer;
     CCLabelTTF *_coinsLabel;
     CCLabelTTF *_timerLabel;
-    
+
     NSInteger _timerValue;
 }
 
 - (void)didLoadFromCCB {
     _timerValue = 15;
     [self schedule:@selector(tick) interval:1.f];
-    
+
     _coinsLabel.string = [NSString stringWithFormat:@"Coins: %d", [GameState sharedInstance].coins];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scoreChanged:) name:GAME_STATE_SCORE_NOTIFICATION object:nil];
+
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(scoreChanged:) name:GAME_STATE_SCORE_NOTIFICATION object:nil];
 }
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 - (void)onEnter {
     [super onEnter];
-    
+
     // unpause when gameplay gets visible
     self.paused = NO;
 }
@@ -43,15 +43,15 @@
 
 - (void)setGameplayMode:(NSString *)gameplayMode {
     _gameplayMode = [gameplayMode copy];
-    
+
     CCNode <NumberChooserDelegate> *gameplay = nil;
-    
+
     if ([_gameplayMode isEqualToString:@"Dodge"]) {
-        gameplay = (CCNode <NumberChooserDelegate> *) [CCBReader load:@"DodgeGameplay"];
+        gameplay = (CCNode <NumberChooserDelegate> *) [CCBReader load : @"DodgeGameplay"];
     } else if ([_gameplayMode isEqualToString:@"Facts"]) {
-        gameplay = (CCNode <NumberChooserDelegate> *) [CCBReader load:@"FactCheckGameplay"];
+        gameplay = (CCNode <NumberChooserDelegate> *) [CCBReader load : @"FactCheckGameplay"];
     }
-    
+
     [_gameplayContainer addChild:gameplay];
     _numberChooser.delegate = gameplay;
 }
@@ -61,9 +61,9 @@
 - (void)tick {
     if (_timerValue == 0) {
         [self unschedule:@selector(tick)];
-        [[CCDirector sharedDirector] popScene];
+        [[CCDirector sharedDirector]popScene];
     }
-    
+
     _timerValue--;
     _timerLabel.string = [NSString stringWithFormat:@"%d", _timerValue];
 }
@@ -73,6 +73,7 @@
 - (void)scoreChanged:(NSNotification *)notification {
     // calling the object method will return whichever object the object posting the notification has passed in
     NSNumber *newCoinValue = [notification object];
+    //TODO: improve coin string
     _coinsLabel.string = [NSString stringWithFormat:@"Coins: %d", [newCoinValue integerValue]];
 }
 
@@ -82,8 +83,7 @@
     // pause this gameplay when we present the store scene
     self.paused = YES;
     CCScene *storeScene = [CCBReader loadAsScene:@"StoreScene"];
-    [[CCDirector sharedDirector] pushScene:storeScene];
+    [[CCDirector sharedDirector]pushScene:storeScene];
 }
-
 
 @end

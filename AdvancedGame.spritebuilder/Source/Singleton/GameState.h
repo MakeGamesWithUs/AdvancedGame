@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-static  NSString * const GAME_STATE_SCORE_NOTIFICATION = @"GameState_ScoreChanged";
+static NSString *const GAME_STATE_SCORE_NOTIFICATION = @"GameState_ScoreChanged";
 
 @interface GameState : NSObject
 

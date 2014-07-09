@@ -31,7 +31,7 @@
         CCLOG(@"Wrong");
         [self.delegate numberChooser:self guessedCorrectly:NO];
     }
-    
+
     [self generateNewRandomNumbers];
 }
 
@@ -51,33 +51,30 @@
     NSArray *randomNumbers = [self generate:2 randomUniqueNumbersBetween:0 upperLimit:20];
     _leftNumber = randomNumbers[0];
     _rightNumber = randomNumbers[1];
-    
+
     _leftButton.title = [_leftNumber stringValue];
     _rightButton.title = [_rightNumber stringValue];
 }
 
-- (NSArray *)generate:(int)n randomUniqueNumbersBetween:(int)lowerLimit upperLimit:(int)upperLimit
-{
+- (NSArray *)generate:(int)n randomUniqueNumbersBetween:(int)lowerLimit upperLimit:(int)upperLimit {
     NSMutableArray *randomNumberArray = [NSMutableArray arrayWithCapacity:upperLimit-lowerLimit];
-    
+
     // add all numbers to array
-    for (int i = lowerLimit; i < upperLimit; i++)
-    {
+    for (int i = lowerLimit; i < upperLimit; i++) {
         [randomNumberArray addObject:@(i)];
     }
-    
+
     // shuffle array
-    for (NSUInteger i = 0; i < [randomNumberArray count]; i++)
-    {
+    for (NSUInteger i = 0; i < [randomNumberArray count]; i++) {
         int j = arc4random_uniform([randomNumberArray count]);
-        
+
         NSNumber *jNumber = randomNumberArray[j];
         NSNumber *iNumber = randomNumberArray[i];
-        
+
         randomNumberArray[j] = iNumber;
         randomNumberArray[i] = jNumber;
     }
-    
+
     return [randomNumberArray subarrayWithRange:NSMakeRange(0,n)];
 }
 

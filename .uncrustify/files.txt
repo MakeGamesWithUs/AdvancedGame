@@ -1,0 +1,17 @@
+./AdvancedGame.spritebuilder/Source/AppDelegate.h
+./AdvancedGame.spritebuilder/Source/AppDelegate.m
+./AdvancedGame.spritebuilder/Source/Gameplays/DodgeGameplay.h
+./AdvancedGame.spritebuilder/Source/Gameplays/DodgeGameplay.m
+./AdvancedGame.spritebuilder/Source/Gameplays/FactCheckGameplay.h
+./AdvancedGame.spritebuilder/Source/Gameplays/FactCheckGameplay.m
+./AdvancedGame.spritebuilder/Source/GameplayScene.h
+./AdvancedGame.spritebuilder/Source/GameplayScene.m
+./AdvancedGame.spritebuilder/Source/main.m
+./AdvancedGame.spritebuilder/Source/MainScene.h
+./AdvancedGame.spritebuilder/Source/MainScene.m
+./AdvancedGame.spritebuilder/Source/NumberChooser.h
+./AdvancedGame.spritebuilder/Source/NumberChooser.m
+./AdvancedGame.spritebuilder/Source/Scenes/StoreScene.h
+./AdvancedGame.spritebuilder/Source/Scenes/StoreScene.m
+./AdvancedGame.spritebuilder/Source/Singleton/GameState.h
+./AdvancedGame.spritebuilder/Source/Singleton/GameState.m

@@ -12,7 +12,7 @@
 @implementation StoreScene
 
 - (void)backButtonPressed {
-    [[CCDirector sharedDirector] popScene];
+    [[CCDirector sharedDirector]popScene];
 }
 
 - (void)buyCoinsPressed {

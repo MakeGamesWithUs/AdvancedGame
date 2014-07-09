@@ -13,15 +13,15 @@
     CCLabelTTF *_factLabel;
     CCLabelTTF *_answerLabel;
     NSArray *_statements;
-    
+
     NSString *_selectedStatement;
     BOOL _selectedStatementTruth;
 }
 
 - (void)didLoadFromCCB {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Statements" ofType:@"plist"];
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"Statements" ofType:@"plist"];
     _statements = [NSArray arrayWithContentsOfFile:path];
-    
+
     [self chooseStatement];
 }
 
@@ -31,7 +31,7 @@
     [self.animationManager runAnimationsForSequenceNamed:@"ShowAnswer"];
 
     _answerLabel.string = guess ? @"TRUE" : @"FALSE";
-    
+
     if (guess == _selectedStatementTruth) {
         _factLabel.string = @"You got this right!";
         // increase coins
@@ -41,7 +41,7 @@
         // decrease coins
         [GameState sharedInstance].coins = [GameState sharedInstance].coins - 1;
     }
-    
+
     [self.animationManager setCompletedAnimationCallbackBlock:^(id sender) {
         [self chooseStatement];
     }];
@@ -52,10 +52,10 @@
 - (void)chooseStatement {
     NSInteger entries = [_statements count];
     NSInteger randonNumber = arc4random_uniform(entries);
-    
+
     _selectedStatement= _statements[randonNumber][@"Statement"];
     _selectedStatementTruth = [_statements[randonNumber][@"True"] boolValue];
-    
+
     _factLabel.string = _selectedStatement;
 }
 
