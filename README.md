@@ -5,5 +5,5 @@
 - Singletons
 - Delegates
 - Notifications
-- Reading Game Information .plist files
+- Reading Game Information from .plist files
 - Storing persistent data in NSUserDefaults
