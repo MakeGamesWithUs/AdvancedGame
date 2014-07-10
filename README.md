@@ -1,7 +1,9 @@
-#This is the MakeGamesWithUs Base Repository
+#Advanced Objective-C Example Game
 
-Run following command in the root folder of your project to run [uncrustify](http://uncrustify.sourceforge.net/):
+[MakeGamesWithUs](http://makegameswith.us) example game that uses the following advanced concepts:
 
-	./.codeformat.sh
-	
-Note: you should install uncrustify with homebrew before running this script. 
+- Singletons
+- Delegates
+- Notifications
+- Reading Game Information from .plist files
+- Storing persistent data in NSUserDefaults
