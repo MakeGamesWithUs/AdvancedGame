@@ -57,6 +57,8 @@
     _selectedStatementTruth = [_statements[randonNumber][@"True"] boolValue];
 
     _factLabel.string = _selectedStatement;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chooseStatement) name:@"ok" object:nil];
 }
 
 @end
